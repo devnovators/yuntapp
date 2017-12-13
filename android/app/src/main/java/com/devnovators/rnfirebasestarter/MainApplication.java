@@ -1,4 +1,4 @@
-package com.invertase.rnfirebasestarter;
+package com.devnovators.yuntapp;
 
 import android.app.Application;
 
