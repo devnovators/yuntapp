@@ -3,6 +3,24 @@ import { StyleSheet, Platform, Image, Text, View, TextInput, Button } from 'reac
 
 import firebase from 'react-native-firebase';
 
+class Listado extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <View>
+        {
+          this.props.lista.map(item => (
+            <Text key={item.key} >{item.nombre} {item.edad}</Text>
+            ))
+        }
+      </View>
+    );
+  }
+}
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -46,11 +64,7 @@ export default class App extends React.Component {
         <Button onPress={this.agregar} title='Agregar'/>
         <Text>{this.state.nombre}</Text>
         <Text>{this.state.edad}</Text>
-        {
-          this.state.lista.map(item => (
-            <Text key={item.key} >{item.nombre} {item.edad}</Text>
-            ))
-        }
+        <Listado lista={this.state.lista} />
       </View>
     );
   }

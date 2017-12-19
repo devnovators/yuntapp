@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -40,6 +39,18 @@
 		8E7D4B171F8AFD9C00699FE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7D4B161F8AFD9B00699FE4 /* GoogleService-Info.plist */; };
 		9775FA8FAB6E3F5C4CFA96F5 /* libPods-Yuntapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EDC5903977D8D6222F0BDE /* libPods-Yuntapp.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		3AED914B60234213BC494604 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C05FC010194965A6705552 /* Entypo.ttf */; };
+		B6EC8D855C23425D9DE314CE /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 783C1744B5714431BAD319A8 /* EvilIcons.ttf */; };
+		4C908550C9C74CDE9056CCE2 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B4DF60E5964D05B6BFF6C9 /* FontAwesome.ttf */; };
+		8CFADA0CC708415CA00B536A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9A5AF840AEC408997D21061 /* Foundation.ttf */; };
+		76CD0FAB7A384011BA646551 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C78681CE34DDABC97F4C7 /* Ionicons.ttf */; };
+		C1654D42B3274A0B89CDD37E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66B2D5A09E6D4CA08A10F13A /* MaterialIcons.ttf */; };
+		71EFF3F6E7BA4C0ABABE8EBB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956EE833643A4B5A8090FB2C /* Octicons.ttf */; };
+		031441344FE24E7994A669DB /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 941C261F20B64500A1AFAD77 /* Roboto_medium.ttf */; };
+		570126E5DDBE45468A45EA8B /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD64C6EC1F8947D3B962C7B5 /* Roboto.ttf */; };
+		74DA124ECD3F4C5D81264085 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 919E8D6304D94980A765D97B /* rubicon-icon-font.ttf */; };
+		1FB9E866632F4E4792580B4D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B96EA7E0F9D42C4B7665C8C /* SimpleLineIcons.ttf */; };
+		0F12B40C2AD64D63992A72C4 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92A9AE7E9C1142DB8CFA2E54 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +340,18 @@
 		ADF4CB3C3BF44D3EBA8B78C4 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		B7AFA8AA9A1CFD17320E9074 /* Pods-Yuntapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yuntapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yuntapp/Pods-Yuntapp.release.xcconfig"; sourceTree = "<group>"; };
 		FBC8C743C046423C960F2237 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
+		42C05FC010194965A6705552 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		783C1744B5714431BAD319A8 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		84B4DF60E5964D05B6BFF6C9 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D9A5AF840AEC408997D21061 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6A8C78681CE34DDABC97F4C7 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66B2D5A09E6D4CA08A10F13A /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		956EE833643A4B5A8090FB2C /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		941C261F20B64500A1AFAD77 /* Roboto_medium.ttf */ = {isa = PBXFileReference; name = "Roboto_medium.ttf"; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CD64C6EC1F8947D3B962C7B5 /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		919E8D6304D94980A765D97B /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7B96EA7E0F9D42C4B7665C8C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		92A9AE7E9C1142DB8CFA2E54 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +589,7 @@
 				6A84F842C723265FECF9ADFD /* Pods */,
 				927E270FF1706B5003F5613D /* Frameworks */,
 				8E7D4AFB1F8AFD6F00699FE4 /* Recovered References */,
+				FB7B13D2A1354D2FA7A58169 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -615,6 +639,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		FB7B13D2A1354D2FA7A58169 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				42C05FC010194965A6705552 /* Entypo.ttf */,
+				783C1744B5714431BAD319A8 /* EvilIcons.ttf */,
+				84B4DF60E5964D05B6BFF6C9 /* FontAwesome.ttf */,
+				D9A5AF840AEC408997D21061 /* Foundation.ttf */,
+				6A8C78681CE34DDABC97F4C7 /* Ionicons.ttf */,
+				66B2D5A09E6D4CA08A10F13A /* MaterialIcons.ttf */,
+				956EE833643A4B5A8090FB2C /* Octicons.ttf */,
+				941C261F20B64500A1AFAD77 /* Roboto_medium.ttf */,
+				CD64C6EC1F8947D3B962C7B5 /* Roboto.ttf */,
+				919E8D6304D94980A765D97B /* rubicon-icon-font.ttf */,
+				7B96EA7E0F9D42C4B7665C8C /* SimpleLineIcons.ttf */,
+				92A9AE7E9C1142DB8CFA2E54 /* Zocial.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1049,6 +1093,18 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				8E7D4B171F8AFD9C00699FE4 /* GoogleService-Info.plist in Resources */,
+				3AED914B60234213BC494604 /* Entypo.ttf in Resources */,
+				B6EC8D855C23425D9DE314CE /* EvilIcons.ttf in Resources */,
+				4C908550C9C74CDE9056CCE2 /* FontAwesome.ttf in Resources */,
+				8CFADA0CC708415CA00B536A /* Foundation.ttf in Resources */,
+				76CD0FAB7A384011BA646551 /* Ionicons.ttf in Resources */,
+				C1654D42B3274A0B89CDD37E /* MaterialIcons.ttf in Resources */,
+				71EFF3F6E7BA4C0ABABE8EBB /* Octicons.ttf in Resources */,
+				031441344FE24E7994A669DB /* Roboto_medium.ttf in Resources */,
+				570126E5DDBE45468A45EA8B /* Roboto.ttf in Resources */,
+				74DA124ECD3F4C5D81264085 /* rubicon-icon-font.ttf in Resources */,
+				1FB9E866632F4E4792580B4D /* SimpleLineIcons.ttf in Resources */,
+				0F12B40C2AD64D63992A72C4 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,13 +1160,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yuntapp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A301E154E716936C5988EB91 /* [CP] Embed Pods Frameworks */ = {
@@ -1134,9 +1193,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Yuntapp/Pods-Yuntapp-resources.sh",
+				"$PODS_CONFIGURATION_BUILD_DIR/gRPC/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
