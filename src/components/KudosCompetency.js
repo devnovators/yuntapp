@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
-export default class KudosCompetency extends Component {
+import firebase from 'react-native-firebase';
+
+class KudosCompetency extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -17,36 +20,75 @@ export default class KudosCompetency extends Component {
     this.choice4 = this.choice4.bind(this);
   }
 
-  choice1() {
-      this.setState({
-       kudo1: 'ios-medal', 
-       kudo2: 'ios-medal-outline', 
-       kudo3: 'ios-medal-outline', 
-       kudo4: 'ios-medal-outline' });
+  componentDidMount() {
+    if(this.props.kudo==1){
+      this.choice1(false);
+    }
+    if(this.props.kudo==2){
+      this.choice2(false);
+    }
+    if(this.props.kudo==3){
+      this.choice3(false);
+    }
+    if(this.props.kudo==4){
+      this.choice4(false);
+    }
   }
 
-  choice2() {
+  choice1(actualizar) {
       this.setState({
-       kudo1: 'ios-medal-outline', 
-       kudo2: 'ios-medal', 
-       kudo3: 'ios-medal-outline', 
-       kudo4: 'ios-medal-outline' });
+      kudo1: 'ios-medal', 
+      kudo2: 'ios-medal-outline', 
+      kudo3: 'ios-medal-outline', 
+      kudo4: 'ios-medal-outline' });
+      if(actualizar){
+        firebase.database()
+        .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+          kudo: 1
+        });
+      }
   }
 
-  choice3() {
+  choice2(actualizar) {
       this.setState({
-       kudo1: 'ios-medal-outline', 
-       kudo2: 'ios-medal-outline', 
-       kudo3: 'ios-medal', 
-       kudo4: 'ios-medal-outline' });
+      kudo1: 'ios-medal-outline', 
+      kudo2: 'ios-medal', 
+      kudo3: 'ios-medal-outline', 
+      kudo4: 'ios-medal-outline' });
+      if(actualizar){
+        firebase.database()
+        .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+          kudo: 2
+        });
+      }
   }
 
-  choice4() {
+  choice3(actualizar) {
       this.setState({
-       kudo1: 'ios-medal-outline', 
-       kudo2: 'ios-medal-outline', 
-       kudo3: 'ios-medal-outline', 
-       kudo4: 'ios-medal' });
+      kudo1: 'ios-medal-outline', 
+      kudo2: 'ios-medal-outline', 
+      kudo3: 'ios-medal', 
+      kudo4: 'ios-medal-outline' });
+      if(actualizar){
+        firebase.database()
+        .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+          kudo: 3
+        });
+      }
+  }
+
+  choice4(actualizar) {
+      this.setState({
+      kudo1: 'ios-medal-outline', 
+      kudo2: 'ios-medal-outline', 
+      kudo3: 'ios-medal-outline', 
+      kudo4: 'ios-medal' });
+      if(actualizar){
+        firebase.database()
+        .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+          kudo: 4
+        });
+      }
   }
 
   render() {
@@ -68,3 +110,12 @@ export default class KudosCompetency extends Component {
     );
   }
 }
+
+KudosCompetency.propTypes = {
+  competency: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  peer: PropTypes.string.isRequired,
+  kudo: PropTypes.number.isRequired
+}
+
+export default KudosCompetency

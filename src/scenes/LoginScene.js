@@ -5,7 +5,7 @@ import {StyleSheet} from 'react-native'
 
 export default class LoginScene extends Component {
   onPressLogin() {
-    Actions.team();
+    Actions.team({id: 'pesanchez_bbva_com'});
   }
 
   render() {

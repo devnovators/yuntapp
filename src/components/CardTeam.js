@@ -4,15 +4,13 @@ import { Actions } from 'react-native-router-flux';
 import { Card, CardItem, Left, Thumbnail, Body, Text, Button } from 'native-base';
 
 class CardTeam extends Component {
-  constructor(props){
-    super(props)
-
-    //this.handleSubmit = this.handleSubmit.bind(this);
-
+  constructor(){
+    super()
+    this.onPressCard = this.onPressCard.bind(this);
   }
 
   onPressCard() {
-    Actions.appreciation();
+    Actions.appreciation({ peer: this.props.id });
   }
 
   render() {
@@ -34,6 +32,7 @@ class CardTeam extends Component {
 }
 
 CardTeam.propTypes = {
+  id: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 }

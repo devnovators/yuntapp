@@ -1,22 +1,58 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Text, Label, Input, Item, Left, Right } from 'native-base';
 import { Modal, View, StyleSheet } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
+import firebase from 'react-native-firebase';
+
 export default class ModalFeedback extends Component {
 
-  state = {
-    modalVisible: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      modalVisible: false,
+      feedback: '',
+      oldFeedback: ''
+    };
+    this.open = this.open.bind(this);
+    this.cancelar = this.cancelar.bind(this);
+    this.enviar = this.enviar.bind(this);
   }
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+  componentDidMount() {
+    this.setState({
+      feedback: this.props.feedback,
+      oldFeedback: this.props.feedback
+    });
+  }
+
+  open() {
+    this.setState({modalVisible: true});
+  }
+
+  enviar() {
+    firebase.database()
+    .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+      feedback: this.state.feedback
+    });
+    this.setState({
+      modalVisible: false,
+      oldFeedback: this.state.feedback
+    });
+  }
+
+  cancelar() {
+    this.setState({
+      modalVisible: false,
+      feedback: this.state.oldFeedback
+    });
   }
 
   render() {
     return (
       <View style={{alignSelf: 'stretch'}}>
-        <Button block onPress={() => {this.setModalVisible(true)}}>
+        <Button block onPress={this.open}>
           <Text>Feedback</Text>
         </Button>
         <Modal animationType="slide" transparent={true} 
@@ -25,16 +61,16 @@ export default class ModalFeedback extends Component {
             <View style={styles.box}>
               <Item floatingLabel  style={styles.textArea}>
                 <Label>Feeback</Label>
-                <Input multiline = {true} numberOfLines = {6}/>
+                <Input multiline = {true} numberOfLines = {6} value={this.state.feedback} onChangeText={(feedback) => this.setState({feedback}) } />
               </Item>
               <Grid>
                 <Col style={styles.col}>
-                  <Button danger block onPress={() => {this.setModalVisible(!this.state.modalVisible)}}>
+                  <Button danger block onPress={this.cancelar}>
                     <Text>Cancelar</Text>
                   </Button>
                 </Col>
                 <Col style={styles.col}>
-                  <Button block onPress={() => {this.setModalVisible(!this.state.modalVisible)}}>
+                  <Button block onPress={this.enviar}>
                     <Text>Enviar</Text>
                   </Button>
                 </Col>
@@ -45,6 +81,13 @@ export default class ModalFeedback extends Component {
       </View>
     );
   }
+}
+
+ModalFeedback.propTypes = {
+  competency: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  peer: PropTypes.string.isRequired,
+  feedback: PropTypes.string.isRequired
 }
 
 const styles = StyleSheet.create({
