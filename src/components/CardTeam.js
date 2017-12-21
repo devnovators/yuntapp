@@ -6,17 +6,12 @@ import { Card, CardItem, Left, Thumbnail, Body, Text, Button } from 'native-base
 class CardTeam extends Component {
   constructor(){
     super()
-    this.onPressCard = this.onPressCard.bind(this);
-  }
-
-  onPressCard() {
-    Actions.appreciation({ peer: this.props.id });
   }
 
   render() {
     return (
       <Card>
-        <CardItem button onPress={this.onPressCard}>
+        <CardItem button onPress={this.props.onPressCard}>
           <Left>
             <Thumbnail 
             source={{uri: 'http://reels.syntheticpictures.com/img/directors/blank-avatar.png'}} />
@@ -32,7 +27,7 @@ class CardTeam extends Component {
 }
 
 CardTeam.propTypes = {
-  id: PropTypes.string.isRequired,
+  onPressCard: PropTypes.func.isRequired,
   role: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Content } from 'native-base';
 import HeaderYuntapp from '../components/HeaderYuntapp';
 import CardTeam from '../components/CardTeam';
+import ListTeam from '../components/ListTeam';
 
 import firebase from 'react-native-firebase';
 
@@ -41,13 +42,7 @@ export default class TeamScene extends Component {
     return (
       <Container>
         <HeaderYuntapp />
-        <Content padder>
-          {
-          this.state.peers.map(item => (
-          <CardTeam key={item.key} id={item.key} name={item.name} role={item.role} />
-            ))
-          }
-        </Content>
+        <ListTeam peers={this.state.peers} />
       </Container>
     );
   }
