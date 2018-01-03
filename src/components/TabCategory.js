@@ -16,7 +16,7 @@ class TabCategory extends Component {
 
   componentDidMount() {
     firebase.database()
-    .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.id)
+    .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.id+'/competency')
     .once('value').then((snapshot)=>{
       var items=[];
       snapshot.forEach(function(itemSnap) {

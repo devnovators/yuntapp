@@ -2,10 +2,40 @@ import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { Container, Text, Button, View, Icon, H1 } from 'native-base';
 import {StyleSheet} from 'react-native'
+import {GoogleSignin} from 'react-native-google-signin';
 
 export default class LoginScene extends Component {
   onPressLogin() {
-    Actions.team({id: 'pesanchez_bbva_com'});
+    GoogleSignin.signIn()
+    .then((user) => {
+      console.log(user);
+      //this.setState({user: user});
+    })
+    .catch((err) => {
+      console.log('WRONG SIGNIN', err);
+    })
+    .done();
+
+    //Actions.team({id: 'pesanchez_bbva_com'});
+  }
+
+  onPressOut() {
+    GoogleSignin.signOut()
+    .then(() => {
+      console.log('out');
+    })
+    .catch((err) => {
+
+    });
+  }
+
+  componentWillMount() {
+    //GoogleSignin.hasPlayServices({ autoResolve: true });
+    GoogleSignin.configure({
+        webClientId: '917668116026-86a58kb241a8ec1rms9j2uhgocemd6ih.apps.googleusercontent.com',
+        iosClientId: '917668116026-jdk446foo07g91njcnm90nst78v677cf.apps.googleusercontent.com'
+        //hostedDomain: 'bbva.com'
+    });
   }
 
   render() {
@@ -17,6 +47,10 @@ export default class LoginScene extends Component {
             <Button iconLeft block danger onPress={this.onPressLogin}>
               <Icon name='logo-googleplus' />
               <Text>Login</Text>
+            </Button>
+            <Button iconLeft block danger onPress={this.onPressOut}>
+              <Icon name='logo-googleplus' />
+              <Text>Out</Text>
             </Button>
           </View>
         </View>

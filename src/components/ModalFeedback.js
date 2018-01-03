@@ -33,7 +33,7 @@ export default class ModalFeedback extends Component {
 
   enviar() {
     firebase.database()
-    .ref('prueba/pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/'+this.props.competency).update({
+    .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
       feedback: this.state.feedback
     });
     this.setState({

@@ -19,20 +19,16 @@ export default class TeamScene extends Component {
   componentDidMount() {
     //firebase.database().ref('prueba/pesanchez_bbva_com').on('value', (snapshot)=>{
 
-    firebase.database().ref('prueba/'+this.props.id).once('value').then((snapshot)=>{
-      this.setState({
-        name: snapshot.val().name,
-        role: snapshot.val().role
-      });
-    });
-    firebase.database().ref('prueba/'+this.props.id+'/peers').once('value').then((snapshot)=>{
+    firebase.database().ref(this.props.id).once('value').then((snapshot)=>{
       var items=[];
-      snapshot.forEach(function(itemSnap) {
-        var item = itemSnap.val();
-        item.key = itemSnap.key;
+      Object.keys(snapshot.val().peers).sort().forEach(key => {
+        var item = snapshot.val().peers[key];
+        item.key = key;
         items.push(item);
       });
       this.setState({
+        name: snapshot.val().name,
+        role: snapshot.val().role,
         peers: items
       });
     });

@@ -20,13 +20,24 @@ export default class AppreciationScene extends Component {
   }
 
   componentDidMount() {
-    firebase.database().ref('prueba/pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key).once('value').then((snapshot)=>{
+    firebase.database().ref('pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key).once('value').then((snapshot)=>{
       this.setState({
         name: snapshot.val().name,
         role: snapshot.val().role
       });
     });
-    firebase.database().ref('prueba/pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key+'/category').once('value').then((snapshot)=>{
+    var items=[];
+    var category=this.props.peers[this.props.peer].category;
+    Object.keys(category).sort().forEach(key => {
+      var item = category[key];
+      item.key = key;
+      items.push(item);
+    });
+    this.setState({
+      category: items
+    });
+
+    /*firebase.database().ref('pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key+'/category').once('value').then((snapshot)=>{
       var items=[];
       snapshot.forEach(function(itemSnap) {
         var item = itemSnap.val();
@@ -36,18 +47,18 @@ export default class AppreciationScene extends Component {
       this.setState({
         category: items
       });
-    });
+    });*/
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({peer: nextProps.peer, peers: nextProps.peers});
-    firebase.database().ref('prueba/pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key).once('value').then((snapshot)=>{
+    firebase.database().ref('pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key).once('value').then((snapshot)=>{
       this.setState({
         name: snapshot.val().name,
         role: snapshot.val().role
       });
     });
-    firebase.database().ref('prueba/pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key+'/category').once('value').then((snapshot)=>{
+    firebase.database().ref('pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key+'/category').once('value').then((snapshot)=>{
       var items=[];
       snapshot.forEach(function(itemSnap) {
         var item = itemSnap.val();
@@ -67,7 +78,7 @@ export default class AppreciationScene extends Component {
         <Tabs initialPage={0}>
           {
           this.state.category.map(item => (
-            <Tab key={item.key} heading={item.key} style={{backgroundColor: 'transparent'}}>
+            <Tab key={item.key} heading={item.name} style={{backgroundColor: 'transparent'}}>
               <TabCategory id={item.key} peer={this.state.peers[this.state.peer].key} />
             </Tab>
             ))
