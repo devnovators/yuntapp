@@ -16,7 +16,7 @@ export default class LoginScene extends Component {
     })
     .done();
 
-    //Actions.team({id: 'pesanchez_bbva_com'});
+    Actions.team({id: 'pesanchez_bbva_com'});
   }
 
   onPressOut() {
@@ -30,11 +30,10 @@ export default class LoginScene extends Component {
   }
 
   componentWillMount() {
-    //GoogleSignin.hasPlayServices({ autoResolve: true });
     GoogleSignin.configure({
         webClientId: '917668116026-86a58kb241a8ec1rms9j2uhgocemd6ih.apps.googleusercontent.com',
-        iosClientId: '917668116026-jdk446foo07g91njcnm90nst78v677cf.apps.googleusercontent.com'
-        //hostedDomain: 'bbva.com'
+        iosClientId: '917668116026-jdk446foo07g91njcnm90nst78v677cf.apps.googleusercontent.com',
+        hostedDomain: 'bbva.com'
     });
   }
 
