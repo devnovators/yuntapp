@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Content } from 'native-base';
+import { Container, Content, Drawer } from 'native-base';
 import HeaderYuntapp from '../components/HeaderYuntapp';
 import CardTeam from '../components/CardTeam';
 import ListTeam from '../components/ListTeam';
+import Menu from '../components/Menu';
 
 import firebase from 'react-native-firebase';
 
@@ -14,6 +15,13 @@ export default class TeamScene extends Component {
       role: '',
       peers: []
     };
+  }
+
+  closeDrawer(){
+    this._drawer._root.close()
+  }
+  openDrawer(){
+    this._drawer._root.open()
   }
 
   componentDidMount() {
@@ -36,10 +44,15 @@ export default class TeamScene extends Component {
 
   render() {
     return (
-      <Container>
-        <HeaderYuntapp />
-        <ListTeam peers={this.state.peers} />
-      </Container>
+      <Drawer
+        ref={(ref) => { this._drawer = ref; }}
+        content={<Menu/>}
+        onClose={() => this.closeDrawer()} side={'right'} >
+        <Container>
+          <HeaderYuntapp pop={false} onPressMenu={() => this.openDrawer()} />
+          <ListTeam peers={this.state.peers} />
+        </Container>
+      </Drawer>
     );
   }
 }

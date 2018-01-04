@@ -8,8 +8,6 @@ import TeamScene from './scenes/TeamScene';
 import AppreciationScene from './scenes/AppreciationScene';
 
 export default class App extends Component {
-
-  
   render() {
     return (
       <StyleProvider style={getTheme(yunta)}>

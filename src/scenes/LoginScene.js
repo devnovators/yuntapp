@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
-import { Container, Text, Button, View, Icon, H1 } from 'native-base';
+import { Container, Text, Button, View, Icon, H1, Spinner } from 'native-base';
 import {StyleSheet} from 'react-native'
 import {GoogleSignin} from 'react-native-google-signin';
 
 export default class LoginScene extends Component {
+  constructor() {
+    super();
+    this.state = {
+      login: false
+    };
+  }
+
   onPressLogin() {
     GoogleSignin.signIn()
     .then((user) => {
-      console.log(user);
+      var email= user.email;
+      email=email.replace(/\./g,'_');
+      email=email.replace('@','_');
+      Actions.reset('team', {id: email});
       //this.setState({user: user});
     })
     .catch((err) => {
       console.log('WRONG SIGNIN', err);
     })
     .done();
-
-    Actions.team({id: 'pesanchez_bbva_com'});
-  }
-
-  onPressOut() {
-    GoogleSignin.signOut()
-    .then(() => {
-      console.log('out');
-    })
-    .catch((err) => {
-
-    });
   }
 
   componentWillMount() {
@@ -35,22 +33,38 @@ export default class LoginScene extends Component {
         iosClientId: '917668116026-jdk446foo07g91njcnm90nst78v677cf.apps.googleusercontent.com',
         hostedDomain: 'bbva.com'
     });
+    setTimeout(
+      function() {
+        GoogleSignin.currentUserAsync().then((user) => {
+          if(user!=null){
+            var email= user.email;
+            email=email.replace(/\./g,'_');
+            email=email.replace('@','_');
+            Actions.reset('team', {id: email});
+          }else{
+            this.setState({login: true});
+          }
+        }).done();
+      }.bind(this), 2000);
   }
 
   render() {
+    let button = null;
+    if (this.state.login) {
+      button = 
+          <Button iconLeft block danger onPress={this.onPressLogin}>
+            <Icon name='logo-googleplus' />
+            <Text>Login</Text>
+          </Button>;
+    }else {
+      button = <Spinner />;
+    } 
     return (
       <Container>
         <View style={styles.main}>
           <View style={styles.box}>
             <H1>Yuntapp</H1>
-            <Button iconLeft block danger onPress={this.onPressLogin}>
-              <Icon name='logo-googleplus' />
-              <Text>Login</Text>
-            </Button>
-            <Button iconLeft block danger onPress={this.onPressOut}>
-              <Icon name='logo-googleplus' />
-              <Text>Out</Text>
-            </Button>
+            {button}
           </View>
         </View>
       </Container>

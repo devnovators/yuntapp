@@ -12,17 +12,26 @@ export default class HeaderYuntapp extends Component {
   }
 
   render() {
+    let button = null;
+    if (this.props.pop) {
+      button = 
+          <Button transparent onPress={this.onPressBack}>
+            <Icon name='arrow-back' />
+          </Button>;
+    }
     return (
       <Header>
         <Left>
-          <Button transparent onPress={this.onPressBack}>
-            <Icon name='arrow-back' />
-          </Button>
+          {button}
         </Left>
         <Body>
           <Title>Yuntapp</Title>
         </Body>
-        <Right/>
+        <Right>
+          <Button transparent onPress={this.props.onPressMenu}>
+            <Icon name='menu' />
+          </Button>
+        </Right>
       </Header>
     );
   }

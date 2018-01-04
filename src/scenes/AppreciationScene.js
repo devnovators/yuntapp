@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Tab, Tabs } from 'native-base';
+import { Container, Tab, Tabs, Drawer } from 'native-base';
 import HeaderYuntapp from '../components/HeaderYuntapp';
 import FooterAppreciation from '../components/FooterAppreciation';
 import TabCategory from '../components/TabCategory';
+import Menu from '../components/Menu';
 
 import firebase from 'react-native-firebase';
 
@@ -17,6 +18,13 @@ export default class AppreciationScene extends Component {
       peer: this.props.peer,
       peers: this.props.peers
     };
+  }
+
+  closeDrawer(){
+    this._drawer._root.close()
+  }
+  openDrawer(){
+    this._drawer._root.open()
   }
 
   componentDidMount() {
@@ -73,19 +81,24 @@ export default class AppreciationScene extends Component {
 
   render() {
     return (
-      <Container>
-        <HeaderYuntapp />
-        <Tabs initialPage={0}>
-          {
-          this.state.category.map(item => (
-            <Tab key={item.key} heading={item.name} style={{backgroundColor: 'transparent'}}>
-              <TabCategory id={item.key} peer={this.state.peers[this.state.peer].key} />
-            </Tab>
-            ))
-          }
-        </Tabs>
-        <FooterAppreciation peers={this.state.peers} peer={this.state.peer} />
-      </Container>
+      <Drawer
+        ref={(ref) => { this._drawer = ref; }}
+        content={<Menu/>}
+        onClose={() => this.closeDrawer()} side={'right'} >
+        <Container>
+          <HeaderYuntapp pop={true} onPressMenu={() => this.openDrawer()} />
+          <Tabs initialPage={0}>
+            {
+            this.state.category.map(item => (
+              <Tab key={item.key} heading={item.name} style={{backgroundColor: 'transparent'}}>
+                <TabCategory id={item.key} peer={this.state.peers[this.state.peer].key} />
+              </Tab>
+              ))
+            }
+          </Tabs>
+          <FooterAppreciation peers={this.state.peers} peer={this.state.peer} />
+        </Container>
+      </Drawer>
     );
   }
 }
