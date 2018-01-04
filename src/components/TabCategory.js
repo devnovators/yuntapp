@@ -16,7 +16,7 @@ class TabCategory extends Component {
 
   componentDidMount() {
     firebase.database()
-    .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.id+'/competency')
+    .ref(this.props.id+'/peers/'+this.props.peer+'/category/'+this.props.category+'/competency')
     .once('value').then((snapshot)=>{
       var items=[];
       snapshot.forEach(function(itemSnap) {
@@ -41,9 +41,9 @@ class TabCategory extends Component {
               </CardItem>
               <CardItem>
                 <Body>
-                  <KudosCompetency competency={item.key} category={this.props.id} 
+                  <KudosCompetency competency={item.key} category={this.props.category} id={this.props.id}
                   peer={this.props.peer} kudo={item.kudo}/>
-                  <ModalFeedback  competency={item.key} category={this.props.id} 
+                  <ModalFeedback  competency={item.key} category={this.props.category} id={this.props.id}
                   peer={this.props.peer} feedback={item.feedback}/>
                 </Body>
               </CardItem>
@@ -57,6 +57,7 @@ class TabCategory extends Component {
 
 TabCategory.propTypes = {
   id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   peer: PropTypes.string.isRequired
 }
 

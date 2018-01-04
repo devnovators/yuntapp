@@ -50,7 +50,7 @@ export default class TeamScene extends Component {
         onClose={() => this.closeDrawer()} side={'right'} >
         <Container>
           <HeaderYuntapp pop={false} onPressMenu={() => this.openDrawer()} />
-          <ListTeam peers={this.state.peers} />
+          <ListTeam peers={this.state.peers} id={this.props.id} />
         </Container>
       </Drawer>
     );

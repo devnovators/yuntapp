@@ -11,7 +11,7 @@ class ListTeam extends Component {
   }
 
   onPressCard(key) {
-    Actions.appreciation({ peers: this.props.peers, peer: key });
+    Actions.appreciation({ peers: this.props.peers, peer: key, id: this.props.id });
   }
 
   render() {
@@ -30,7 +30,8 @@ class ListTeam extends Component {
 }
 
 ListTeam.propTypes = {
-  peers: PropTypes.array.isRequired
+  peers: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default ListTeam

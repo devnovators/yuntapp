@@ -43,7 +43,7 @@ class KudosCompetency extends Component {
       kudo4: 'ios-medal-outline' });
       if(actualizar){
         firebase.database()
-        .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
+        .ref(this.props.id+'/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
           kudo: 1
         });
       }
@@ -57,7 +57,7 @@ class KudosCompetency extends Component {
       kudo4: 'ios-medal-outline' });
       if(actualizar){
         firebase.database()
-        .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
+        .ref(this.props.id+'/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
           kudo: 2
         });
       }
@@ -71,7 +71,7 @@ class KudosCompetency extends Component {
       kudo4: 'ios-medal-outline' });
       if(actualizar){
         firebase.database()
-        .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
+        .ref(this.props.id+'/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
           kudo: 3
         });
       }
@@ -85,7 +85,7 @@ class KudosCompetency extends Component {
       kudo4: 'ios-medal' });
       if(actualizar){
         firebase.database()
-        .ref('pesanchez_bbva_com/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
+        .ref(this.props.id+'/peers/'+this.props.peer+'/category/'+this.props.category+'/competency/'+this.props.competency).update({
           kudo: 4
         });
       }
@@ -112,6 +112,7 @@ class KudosCompetency extends Component {
 }
 
 KudosCompetency.propTypes = {
+  id: PropTypes.string.isRequired,
   competency: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   peer: PropTypes.string.isRequired,

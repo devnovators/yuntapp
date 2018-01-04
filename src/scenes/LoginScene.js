@@ -19,7 +19,6 @@ export default class LoginScene extends Component {
       email=email.replace(/\./g,'_');
       email=email.replace('@','_');
       Actions.reset('team', {id: email});
-      //this.setState({user: user});
     })
     .catch((err) => {
       console.log('WRONG SIGNIN', err);

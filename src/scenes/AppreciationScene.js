@@ -28,7 +28,7 @@ export default class AppreciationScene extends Component {
   }
 
   componentDidMount() {
-    firebase.database().ref('pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key).once('value').then((snapshot)=>{
+    firebase.database().ref(this.props.id+'/peers/'+this.props.peers[this.props.peer].key).once('value').then((snapshot)=>{
       this.setState({
         name: snapshot.val().name,
         role: snapshot.val().role
@@ -44,38 +44,25 @@ export default class AppreciationScene extends Component {
     this.setState({
       category: items
     });
-
-    /*firebase.database().ref('pesanchez_bbva_com/peers/'+this.props.peers[this.props.peer].key+'/category').once('value').then((snapshot)=>{
-      var items=[];
-      snapshot.forEach(function(itemSnap) {
-        var item = itemSnap.val();
-        item.key = itemSnap.key;
-        items.push(item);
-      });
-      this.setState({
-        category: items
-      });
-    });*/
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({peer: nextProps.peer, peers: nextProps.peers});
-    firebase.database().ref('pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key).once('value').then((snapshot)=>{
+    firebase.database().ref(nextProps.id+'/peers/'+nextProps.peers[nextProps.peer].key).once('value').then((snapshot)=>{
       this.setState({
         name: snapshot.val().name,
         role: snapshot.val().role
       });
     });
-    firebase.database().ref('pesanchez_bbva_com/peers/'+nextProps.peers[nextProps.peer].key+'/category').once('value').then((snapshot)=>{
-      var items=[];
-      snapshot.forEach(function(itemSnap) {
-        var item = itemSnap.val();
-        item.key = itemSnap.key;
-        items.push(item);
-      });
-      this.setState({
-        category: items
-      });
+    var items=[];
+    var category=nextProps.peers[nextProps.peer].category;
+    Object.keys(category).sort().forEach(key => {
+      var item = category[key];
+      item.key = key;
+      items.push(item);
+    });
+    this.setState({
+      category: items
     });
   }
 
@@ -91,7 +78,7 @@ export default class AppreciationScene extends Component {
             {
             this.state.category.map(item => (
               <Tab key={item.key} heading={item.name} style={{backgroundColor: 'transparent'}}>
-                <TabCategory id={item.key} peer={this.state.peers[this.state.peer].key} />
+                <TabCategory id={this.props.id} category={item.key} peer={this.state.peers[this.state.peer].key} />
               </Tab>
               ))
             }
